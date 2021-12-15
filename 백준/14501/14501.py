@@ -13,16 +13,16 @@ def make_tree(N, T, P, node, reward_collection) :
     # Y
     y_start = node.end + 1
     # reward_collection에 추가
-    y_sum_reward = node.sum_reward + node.reward
-    reward_collection.append(y_sum_reward)
+    # y_sum_reward = node.sum_reward + node.reward
+    # reward_collection.append(y_sum_reward)
     if y_start <= N :
         y_duration = T[y_start-1]
         y_end = y_start + y_duration -1
         
         y_reward = P[y_start-1]
-        # y_sum_reward = node.sum_reward + node.reward
+        y_sum_reward = node.sum_reward + node.reward
         # # reward_collection에 추가
-        # reward_collection.append(y_sum_reward)
+        reward_collection.append(y_sum_reward)
         if y_end <= N :
             node.Y = Node(node, y_start, y_duration, y_end, y_reward, y_sum_reward)
             make_tree(N, T, P, node.Y, reward_collection)
